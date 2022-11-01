@@ -1,2 +1,2 @@
 # alrogithms
-my realization of diffetent ML &amp; data structure algorithms
+my implementation of diffetent ML &amp; data structure algorithms
