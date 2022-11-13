@@ -1,1 +1,1 @@
-there is my ml algo realization
+my realization of ML algorithms
