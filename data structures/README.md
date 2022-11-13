@@ -1,1 +1,1 @@
-this is my data structures algorithms
+my realization of data structures algorithms
