@@ -1,1 +1,1 @@
-my realization of data structures algorithms
+my realization of different data structures and algorithms
