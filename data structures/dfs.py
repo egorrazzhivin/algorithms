@@ -14,12 +14,12 @@ class graph:
         #add edge from vertex u to vertex v
         self.graph[u].append(v)
     
-    def dfs(self, vertex):
+    def dfs(self, vertex: int) -> int:
         #depth-first-search function
         visited = set()
         self.dfs_(vertex, visited)
 
-    def dfs_(self, vertex, visited):
+    def dfs_(self, vertex: int, visited: int) -> int:
         visited.add(vertex)
         print(vertex, end = ' ')
         for v in self.graph[vertex]:
