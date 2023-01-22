@@ -13,6 +13,8 @@ using namespace std;
 //ios::sync_with_stdio(false);
 const int INF = 1e9;
 
+//O(m+n**2)
+
 vector<vector<pair<int, int>>> g(1000);
 
 int main() {
