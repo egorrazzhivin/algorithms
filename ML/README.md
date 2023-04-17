@@ -1,1 +1,1 @@
-my realization of ML algorithms
+my implementation of ML algorithms
