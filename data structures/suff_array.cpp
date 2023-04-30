@@ -54,6 +54,6 @@ int main() {
         }
         k++;
     }
-    for(int i =0;i<n;i++) cout << p[i] << " ";
+    for(int i =0;i<n;i++) cout << p[i] << " " << s.substr(p[i], n-p[i]);
     cout << endl;
 }
