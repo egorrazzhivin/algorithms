@@ -1,26 +1,3 @@
-/*
-link: https://codeforces.com/edu/course/2/lesson/4/1/practice/contest/273169/problem/A
-*/
-
-#include <iostream>
-#include<math.h>
-#include <vector>
-#include <map>
-#include <set>
-#include <unordered_set>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <deque>
-#include <random>
-#include <algorithm>
-#include <iterator>
-#include <numeric>
-#include <tuple>
-typedef long long ll;
-using namespace std;
-
 struct segtree{
     int n,sz;
     vector<ll> tree;
@@ -76,28 +53,3 @@ struct segtree{
     }
 
 };
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    int n,m;
-    cin >> n >> m;
-    segtree st(n);
-    vector<int> a(n);
-    for(int i =0;i<n;i++) cin >> a[i];
-    st.build(a);
-    while(m--){
-        int x;
-        cin >> x;
-        if(x==1){
-            int i,v;
-            cin >> i >> v;
-            st.set(i,v);
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << st.sum(l,r) << endl;
-        }
-    }
-}   
