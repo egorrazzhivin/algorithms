@@ -1,6 +1,9 @@
 /*
 https://www.spoj.com/problems/CAPCITY/
 Kosaraju's algorithm
+
+PPS: if answer is 0 we should iterate over all edges that connects different SCC
+and calculate their degrees. If there are > 1 SCC such that out_degree = 0 answer is 0.
 */
 
 #include <iostream>
