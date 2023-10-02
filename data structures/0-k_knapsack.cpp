@@ -9,7 +9,6 @@ using adding powers of twos for every group
 and then we're doing simple 0-1 knapsack)
 */
 
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -43,19 +42,18 @@ int main() {
                 if (static_cast<int64_t>(start - last_index) / weight[element] > cnt[element]) {
                     dq.pop_front();
                 }
-                int64_t max_value = dq.front().first;
-                new_dp[start] = max_value + add;
                 int64_t new_value = dp[start] - add;
                 while (!dq.empty() && dq.back().first < new_value) {
                     dq.pop_back();
                 }
                 dq.push_back(std::make_pair(new_value, start));
+                int64_t max_value = dq.front().first;
+                new_dp[start] = max_value + add;
                 add += cost[element];
             }
         }
         for (int we = 1; we <= total; ++we) {
             new_dp[we] = std::max(new_dp[we], new_dp[we - 1]);
-            new_dp[we] = std::max(new_dp[we], dp[we]);
         }
         dp = new_dp;
     }
