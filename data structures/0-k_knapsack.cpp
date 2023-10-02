@@ -22,6 +22,7 @@ int main() {
         std::cin >> weight[i] >> cost[i] >> cnt[i];
     }
     std::vector<int64_t> dp(total + 1, 0);
+    std::deque<std::pair<int64_t, int>> dq;
     for (int element = 1; element <= size; ++element) {
         if (weight[element] > total) {
             continue;
@@ -30,7 +31,7 @@ int main() {
         for (int reminder = 0; reminder < weight[element]; ++reminder) {
             int start = reminder;
             new_dp[start] = dp[start];
-            std::deque<std::pair<int64_t, int>> dq;
+            dq.clear();
             dq.push_back(std::make_pair(new_dp[start], start));
             int64_t add = cost[element];
             while (start <= total) {
