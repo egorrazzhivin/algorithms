@@ -56,7 +56,6 @@ int main() {
         for (int we = 1; we <= total; ++we) {
             new_dp[we] = std::max(new_dp[we], new_dp[we - 1]);
             new_dp[we] = std::max(new_dp[we], dp[we]);
-            new_dp[we] = std::max(new_dp[we], dp[we - 1]);
         }
         dp = new_dp;
     }
