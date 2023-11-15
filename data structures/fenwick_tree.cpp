@@ -1,26 +1,25 @@
 struct fenwick{
-    vector<ll> f;
+    std::vector<int64_t> fw;
 
-    fenwick(int n){
-        f.assign(n,0);
+    explicit fenwick(int size) {
+        fw.assign(size, 0);
     }
 
-    void inc(int pos, ll val){
-        for(int i = pos; i<(int)f.size(); i=(i|(i+1))){
-            f[i] += val;
+    void inc(int pos, int64_t val) {
+        for (int i = pos; i < static_cast<int>(fw.size()); i = (i | (i+1))) {
+            fw[i] += val;
         }
     }
 
-    ll get(int r){
-        ll res = 0;
-        for(int i =r; i>=0; i=(i&(i+1))-1){
-            res+=f[i];
+    int64_t get(int right) {
+        int64_t res = 0;
+        for (int i = right; i >= 0; i = (i & (i+1)) - 1) {
+            res += fw[i];
         }
-
         return res;
     }
 
-    ll get(int l, int r) {
-        return get(r) - get(l-1);
+    int64_t get(int left, int right) {
+        return get(right) - get(left - 1);
     }
 };
