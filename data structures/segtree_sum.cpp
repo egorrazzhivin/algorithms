@@ -36,3 +36,6 @@ struct segtree {
         return get(v << 1, l_seg, m, l, r) + get(v << 1 | 1, m + 1, r_seg, l, r);
     }
 };
+
+// st.build(1, 1, n, a); a - 1-indexed
+// st.get(1, 1, n, l, r)
