@@ -12,7 +12,6 @@ struct segtree {
             return;
         }
         int m = (l + r) >> 1;
-        // [l, m], [m + 1, r];
         build(v << 1, l, m, a);
         build(v << 1 | 1, m + 1, r, a);
         t[v] = t[v << 1] + t[v << 1 | 1];
