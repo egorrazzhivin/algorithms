@@ -8,14 +8,14 @@ struct segtree {
         modify.assign(4 * n + 5, 0);
     }
  
-    void build(int v, int l, int r) {
+    void build(int v, int l, int r, vector<int>& a) {
         if (l == r) {
-            t[v] = 0;
+            t[v] = a[l];
             return;
         }
         int m = (l + r) >> 1;
-        build(v << 1, l, m);
-        build(v << 1 | 1, m + 1, r);
+        build(v << 1, l, m, a);
+        build(v << 1 | 1, m + 1, r, a);
         t[v] = t[v << 1] + t[v << 1 | 1];
     }
  
