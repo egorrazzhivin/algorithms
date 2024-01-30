@@ -16,7 +16,7 @@ void dfs(int v, int par, int h) {
 int lca(int u, int v) {
     if (d[u] < d[v]) swap(u, v);
 
-    for (int sz=18; sz >= 0; sz--) {
+    for (int sz = 18; sz >= 0; sz--) {
         if (d[u] - (1 << sz) >= d[v]) u = bin_up[u][sz];
     }
 
