@@ -39,4 +39,4 @@ struct bit_trie {
     }
 };
 
-//bit_trie trie(n*LOG + 5);
+//bit_trie trie(n * LOG + 5);
