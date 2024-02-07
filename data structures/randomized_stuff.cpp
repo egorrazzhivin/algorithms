@@ -4,7 +4,7 @@ cout << uniform_int_distribution<int>(l,r)(rng) << endl;
 -----------
 
 namespace generator {
-  mt19937 generator(132132);
+    mt19937 generator(132132);
 }
 
 uniform_int_distribution<int64_t> prior(0, 1e9);
