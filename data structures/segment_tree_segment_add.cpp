@@ -30,7 +30,7 @@ struct segtree {
         }
     }
  
-    void update(int v, int l_seg, int r_seg, int l, int r, ll x) {
+    void update(int v, int l_seg, int r_seg, int l, int r, int64_t x) {
         push(v, l_seg, r_seg);
         if (l <= l_seg && r >= r_seg) {
             modify[v] += x;
