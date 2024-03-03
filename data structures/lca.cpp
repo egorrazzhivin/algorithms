@@ -2,6 +2,7 @@ vector<vector<int>> g(200200);
 vector<int> d(200200, 0);
 int bin_up[200200][20];
 
+// do par = 0!
 void dfs(int v, int par, int h) {
     bin_up[v][0] = par;
     d[v] = h;
