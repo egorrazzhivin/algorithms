@@ -32,7 +32,7 @@ struct segtree {
         return result;
     }
 
-    void build(int v, int l, int r, vector<int>& a) {
+    void build(int v, int l, int r, vector<int64_t>& a) {
         if (l == r) {
             t[v] = {a[l]};
             return;
@@ -43,7 +43,7 @@ struct segtree {
         t[v] = merge(t[v << 1], t[v << 1 | 1]);
     }
 
-    int64_t get(int v, int l_seg, int r_seg, int l, int r, int x) {
+    int64_t get(int v, int l_seg, int r_seg, int l, int r, int64_t x) {
         // return number of elements <= x
         if (l_seg > r || r_seg < l) return 0;
         if (l_seg >= l && r_seg <= r) {
