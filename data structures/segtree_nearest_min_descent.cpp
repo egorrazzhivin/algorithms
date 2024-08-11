@@ -6,7 +6,7 @@ struct segtree {
         t.assign(4 * n + 5, 0);
     }
 
-    void build(int v, int l, int r, vector<int>& a) {
+    void build(int v, int l, int r, vector<int64_t>& a) {
         if (l == r) {
             t[v] = a[l];
             return;
@@ -35,7 +35,7 @@ struct segtree {
         return min(get(v << 1, l_seg, m, l, r), get(v << 1 | 1, m + 1, r_seg, l, r));
     }
 
-    int find_l_whole(int v, int l_seg, int r_seg, int x) {
+    int find_l_whole(int v, int l_seg, int r_seg, int64_t x) {
         // on [l_seg, r_seg] find leftmost i: a[i] < x
         if (l_seg == r_seg) {
             if (t[v] < x) return l_seg;
@@ -46,7 +46,7 @@ struct segtree {
         else return find_l_whole(v << 1 | 1, m + 1, r_seg, x); // go to right
     }
 
-    int find_r_whole(int v, int l_seg, int r_seg, int x) {
+    int find_r_whole(int v, int l_seg, int r_seg, int64_t x) {
         // on [l_seg, r_seg] find rightmost i: a[i] < x
         if (l_seg == r_seg) {
             if (t[v] < x) return l_seg;
@@ -57,7 +57,7 @@ struct segtree {
         else return find_r_whole(v << 1, l_seg, m, x); // go to left
     }
 
-    int find_l(int v, int l_seg, int r_seg, int l, int x) {
+    int find_l(int v, int l_seg, int r_seg, int l, int64_t x) {
         // find leftmost i > l: a[i] < x
         if (r_seg < l) return -1;
         if (l <= l_seg) {
@@ -70,7 +70,7 @@ struct segtree {
         else return find_l(v << 1 | 1, m + 1, r_seg, l, x);
     }
 
-    int find_r(int v, int l_seg, int r_seg, int r, int x) {
+    int find_r(int v, int l_seg, int r_seg, int r, int64_t x) {
         // find rightmost i < r: a[i] < x
         if (l_seg > r) return -1;
         if (r_seg <= r) {
