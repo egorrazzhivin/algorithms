@@ -37,16 +37,20 @@ struct segtree {
 
     int find(int v, int l_seg, int r_seg, int l, int k) {
         // find k'th 1 on segment [l, n]
+        if (l > 1) k += get(v, l_seg, r_seg, 1, l - 1); // shift so find k'th 1 on [1, n]
+        return find_prefix(v, l_seg, r_seg, k);
+    }
+
+    int find_prefix(int v, int l_seg, int r_seg, int k) {
+        // find k'th 1 on segment [1, n]
         if (l_seg == r_seg) {
             // found
             return l_seg;
         }
-        if (l > 1) k += get(1, 1, n, 1, l - 1); // shift so find k'th 1 on [1, n]
-        // I DIDN'T CHECK l > 1 CASE BUT HOPE IT'LL WORK
         int m = (l_seg + r_seg) >> 1;
         int l_value = t[v << 1], r_value = t[v << 1 | 1];
-        if (l_value >= k) return find(v << 1, l_seg, m, 1, k);
-        else return find(v << 1 | 1, m + 1, r_seg, 1, k - l_value);
+        if (l_value >= k) return find_prefix(v << 1, l_seg, m, k);
+        else return find_prefix(v << 1 | 1, m + 1, r_seg, k - l_value);
     }
 };
 
